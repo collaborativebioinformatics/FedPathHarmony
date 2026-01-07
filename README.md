@@ -5,14 +5,15 @@ Cross-Biobank Data Access &amp; Harmonization
 
 |Name|Email|
 |---|---|
-|Ravi Madduri | madduri@anl.gov|
+|Ravi Madduri (Team Lead) | madduri@anl.gov|
 |Derek Mu | derekmu@andrew.cmu.edu|
 |Manali Gokhale | emrunali@gmail.com	 |
 |Alina Devkota | ad00139@mix.wvu.edu|
-|ailisib@andrew.cmu.edu|
-|peiran@cmu.edu|
-|prashnna.gyawali@mail.wvu.edu|
-|surathas@andrew.cmu.edu |
+||ailisib@andrew.cmu.edu|
+||peiran@cmu.edu|
+||prashnna.gyawali@mail.wvu.edu|
+||surathas@andrew.cmu.edu |
+|Rodela| |
 |Pete Lawson | plawson@jhu.edu|
 
 ## Flowchart
