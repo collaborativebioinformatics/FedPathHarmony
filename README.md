@@ -3,6 +3,9 @@ Cross-Biobank Data Access &amp; Harmonization
 
 ## Flowchart
 
+Data Harminzation Workflow 
+---
+
 ```mermaid
 flowchart TD
     A[Identify 2-4 Participating Biobanks] --> B[Characterize Local Data]
