@@ -7,16 +7,17 @@
 |---|---|
 |Ravi Madduri (Team Lead) | madduri@anl.gov|
 |Derek Mu | derekmu@andrew.cmu.edu|
-|Mrunali Thokadiwala | emrunali@gmail.com	 |
+|Mrunali Thokadiwala | emrunali@gmail.com|
 |Alina Devkota | ad00139@mix.wvu.edu|
 |Alis Bao | ailisib@andrew.cmu.edu|
 |Peiran Jiang | peiran@cmu.edu|
+|Jacob Thrasher | jdt0025@mix.wvu.edu|
 |Prashnna Gyawali | prashnna.gyawali@mail.wvu.edu|
 |Suratha Sriram | surathas@andrew.cmu.edu |
 |Rodela | mrozbu@alumni.cmu.edu|
 |Pete Lawson | plawson@jhu.edu|
-|Abhijit Chunduru | schunduru@umass.edu|
 |Jiahao He | leah12577@gmail.com|
+|Abhijit Chunduru | schunduru@umass.edu|
 
 ## Problem Statement:
 
