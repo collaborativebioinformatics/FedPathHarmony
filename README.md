@@ -80,6 +80,26 @@ flowchart TD
     C --> D[Cross-Biobank Harmonization]
     D --> E[Develop Simplified Knowledge Graph - Single Disease State]
 ```
+## Methods
+
+### Data Sources and Experimental Setup
+
+**Patch Based Histopathology:**
+The CAMELYON17 dataset comprises 1,300 hematoxylin and eosin (H&E)–stained sentinel lymph node whole-slide images (WSIs) from breast cancer patients. Using a patch-based variant of CAMELYON17 [4], approximately 450,000 patches of size 96 × 96 pixels were extracted from the WSIs. Each WSI was manually annotated by pathologists to delineate tumor regions, and the resulting segmentation masks were used to assign binary labels (tumor or non-tumor) to each patch.
+
+**Biobank Proxy**: The CAMELYON17 dataset includes whole slide images from five pathology centers: RadboudUMC, UMCU, Erasmus MC, UMCG and the Institute Jules Bordet. By treating each pathology center as a proxy for a separate biobank, we can explore the impact of a diverse range of staining protocols, slide preparation methods, and scanning equipment on inter-center variability, and the need for data harmonization across sites.
+
+
+### Data Harmonization
+
+
 
 ## References:
+
 1.  **CAMELYON17 Dataset:** Litjens, G., et al. (2018). *1399 H&E-stained sentinel lymph node sections of breast cancer patients: the CAMELYON dataset.* GigaScience.
+
+2. M. Jiang, Z. Wang, and Q. Dou, “HarmoFL: Harmonizing Local and Global Drifts in Federated Learning on Heterogeneous Medical Images,” Proceedings of the AAAI Conference on Artificial Intelligence, vol. 36, no. 1, pp. 1087–1095, June 2022, doi: 10.1609/aaai.v36i1.19993.
+
+3. T. Xu, Y. Wu, A. K. Tripathi, M. M. Ippolito, and B. D. Haeffele, “Adaptive Stain Normalization for Cross-Domain Medical Histology,” vol. 15966, 2026, pp. 24–33. doi: 10.1007/978-3-032-04981-0_3.
+
+4. P. Bandi et al., “From Detection of Individual Metastases to Classification of Lymph Node Status at the Patient Level: The CAMELYON17 Challenge,” IEEE Trans Med Imaging, vol. 38, no. 2, pp. 550–560, Feb. 2019, doi: 10.1109/TMI.2018.2867350.
