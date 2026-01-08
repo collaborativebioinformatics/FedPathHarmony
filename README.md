@@ -7,7 +7,7 @@ Cross-Biobank Data Access &amp; Harmonization
 |---|---|
 |Ravi Madduri (Team Lead) | madduri@anl.gov|
 |Derek Mu | derekmu@andrew.cmu.edu|
-|Manali Gokhale | emrunali@gmail.com	 |
+|Mrunali Thokadiwala | emrunali@gmail.com	 |
 |Alina Devkota | ad00139@mix.wvu.edu|
 ||ailisib@andrew.cmu.edu|
 ||peiran@cmu.edu|
@@ -17,6 +17,8 @@ Cross-Biobank Data Access &amp; Harmonization
 |Rodela| |
 |Pete Lawson | plawson@jhu.edu|
 | Jiahao | leah12577@gmail.com |
+|Abhijit Chunduru | schunduru@umass.edu|
+
 
 ## Flowchart
 
