@@ -1,4 +1,4 @@
-# Cross-Biobank Data Access & Harmonization
+# FedPathHarmony
 
 ### *Federated Harmonization for Multi-Center Digital Pathology*
 
