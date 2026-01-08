@@ -20,7 +20,7 @@ def define_parser():
     parser.add_argument("--n_clients", type=int, default=5, help="Number of federated sites/clients")
     parser.add_argument("--num_rounds", type=int, default=2, help="Number of FL rounds")
     parser.add_argument("--epochs", type=int, default=2, help="Local training epochs per round")
-    parser.add_argument("--batch_size", type=int, default=128)
+    parser.add_argument("--batch_size", type=int, default=256)
     return parser.parse_args()
 
 

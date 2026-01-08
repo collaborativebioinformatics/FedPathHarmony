@@ -15,10 +15,10 @@ class Camelyon17(Dataset):
         assert split in ['train', 'test']
         assert int(site) in [1,2,3,4,5] # five hospital
 
-        base_path = base_path if base_path is not None else '/home/ubuntu/dataset/camelyon'
+        base_path = base_path if base_path is not None else '/home/ubuntu/Cross_biobank_data_access/camelyon17/data'
         self.base_path = base_path
 
-        data_dict = np.load('/home/ubuntu/dataset/data.pkl', allow_pickle=True)
+        data_dict = np.load('/home/ubuntu/Cross_biobank_data_access/camelyon17/data.pkl', allow_pickle=True)
         self.paths, self.labels = data_dict[f'hospital{site}'][f'{split}']
 
         self.transform = transform
