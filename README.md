@@ -91,7 +91,7 @@ flowchart TD
 
 ## Methods
 
-### Data Sources and Experimental Setup
+### Data Sources
 
 **Patch Based Histopathology:** The CAMELYON17 dataset comprises 1,300 hematoxylin and eosin (H&E)–stained sentinel lymph node whole-slide images (WSIs) from breast cancer patients. Using a patch-based variant of CAMELYON17 \[4\], approximately 450,000 patches of size 96 × 96 pixels were extracted from the WSIs. Each WSI was manually annotated by pathologists to delineate tumor regions, and the resulting segmentation masks were used to assign binary labels (tumor or non-tumor) to each patch.
 
@@ -103,6 +103,14 @@ Due to the inter-center variability in staining protocols, slide preparation met
 
 In a federated learning framework, this image-level frequency information is computed locally at each site and sent back to a central server. The centralized server aggregates these frequency profiles to compute a global average representation of staining parameters across sites. This global average is then shared back with each site, enabling local adjustments of staining features to align with the harmonized global baseline. By ensuring consistency in image representation using global H&E harmonization, this approach minimizes inter-center drift while preserving the fidelity of clinically relevant features within the histopathology images.
 
+### Experimental Setup
+
+- Federated Averaging (naive harmonization): Each center trains a local model on its patches; model weights are periodically averaged across centers using FedAvg via NVFLARE, without explicit stain harmonization.
+
+- Beer–Lambert Stain Normalization (smart harmonization): Patches are first stain-normalized to reduce inter-center variability, then local models are trained and aggregated using FedAvg in NVFLARE.
+
+- Pooled Centers (centralized evaluation): Patches from all five centers are combined into a single dataset, and a centralized model is trained to evaluate the performance difference between conventional centralized training and federated approaches.
+  
 ## References:
 
 1.  **CAMELYON17 Dataset:** Litjens, G., et al. (2018). *1399 H&E-stained sentinel lymph node sections of breast cancer patients: the CAMELYON dataset.* GigaScience.
