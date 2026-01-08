@@ -101,8 +101,11 @@ In a federated learning framework, this image-level frequency information is com
 
 ## How to use this repository:
 
-1. Load data into local environment: `wget "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/?download=1" \
-  -O camelyon17.tar.gz`
+1. Load data into local environment:
+
+```bash
+wget "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/?download=1" \ -O camelyon17.tar.gz
+````
 
 ## Flowchart:
 
