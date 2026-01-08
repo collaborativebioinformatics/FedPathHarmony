@@ -11,10 +11,12 @@ Cross-Biobank Data Access &amp; Harmonization
 |Alina Devkota | ad00139@mix.wvu.edu|
 ||ailisib@andrew.cmu.edu|
 ||peiran@cmu.edu|
+|Jacob Thrasher| jdt0025@mix.wvu.edu |
 ||prashnna.gyawali@mail.wvu.edu|
 ||surathas@andrew.cmu.edu |
 |Rodela| |
 |Pete Lawson | plawson@jhu.edu|
+| Jiahao | leah12577@gmail.com |
 |Abhijit Chunduru | schunduru@umass.edu|
 
 
