@@ -91,7 +91,9 @@ The CAMELYON17 dataset comprises 1,300 hematoxylin and eosin (H&E)–stained sen
 
 
 ### Data Harmonization
+Due to the inter-center variability in staining protocols, slide preparation methods, and scanning equipment in the CAMELYON17 dataset, harmonizing the visual representation of histopathology images is critical for ensuring robust model performance across sites. To address this challenge, we developed a harmonization approach based on the Beer-Lambert law to compute image-level frequency information for each whole-slide hematoxylin and eosin (H&E) image. This approach captures the spectral characteristics of each WSI, representing key staining features (e.g., variations in hematoxylin and eosin absorption) in a quantitative and standardized manner.
 
+In a federated learning framework, this image-level frequency information is computed locally at each site and sent back to a central server. The centralized server aggregates these frequency profiles to compute a global average representation of staining parameters across sites. This global average is then shared back with each site, enabling local adjustments of staining features to align with the harmonized global baseline. By ensuring consistency in image representation using global H&E harmonization, this approach minimizes inter-center drift while preserving the fidelity of clinically relevant features within the histopathology images.
 
 
 ## References:
