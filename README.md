@@ -2,7 +2,7 @@
 
 ### *Federated Harmonization for Multi-Center Digital Pathology*
 
-<p align="center">
+<p align="left">
 
 <img src="assets/content.png" alt="Harmonius Hacker Logo" width="300"/> 
 
