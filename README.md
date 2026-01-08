@@ -4,6 +4,13 @@
 
 ![](assets/content.png){width="300"}
 
+<p align="center">
+
+<img src="assets/content.png" alt="Harmonius Hacker Logo" width="300"/> 
+
+</p>
+
+
 ## Team Members
 
 | Name                     | Email                          |
