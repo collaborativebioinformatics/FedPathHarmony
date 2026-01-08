@@ -6,19 +6,19 @@ NVFlare Job recipe for FedAvg with site-specific Prostate dataset
 """
 
 import argparse
-from nets.models import DenseNet  # or UNet if using segmentation
+from nets.models import DenseNet, ClientModel1  # or UNet if using segmentation
 from utils.dataset import Camelyon17
 
 from nvflare.app_opt.pt.recipes.fedavg import FedAvgRecipe
 from nvflare.recipe import SimEnv, add_experiment_tracking
 
-from nets.models_factory import make_densenet
+# from nets.models_factory import make_densenet
 
 
 def define_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--n_clients", type=int, default=5, help="Number of federated sites/clients")
-    parser.add_argument("--num_rounds", type=int, default=2, help="Number of FL rounds")
+    parser.add_argument("--num_rounds", type=int, default=200, help="Number of FL rounds")
     parser.add_argument("--epochs", type=int, default=2, help="Local training epochs per round")
     parser.add_argument("--batch_size", type=int, default=256)
     return parser.parse_args()
@@ -32,6 +32,7 @@ def main():
 
     # Initial model for FedAvg
     initial_model = DenseNet(input_shape=[3, 96, 96], num_classes=2)  # adapt input_shape and num_classes
+    # initial_model = ClientModel1(backbone='densenet', do_norm=False)
 
     sites = [1, 2, 3, 4, 5]
     # Define the FedAvg recipe
@@ -47,7 +48,7 @@ def main():
     
 
     # Optional: TensorBoard tracking
-    add_experiment_tracking(recipe, tracking_type="tensorboard")
+    # add_experiment_tracking(recipe, tracking_type="tensorboard")
 
     # Simulated environment (for local testing)
     env = SimEnv(num_clients=n_clients)
