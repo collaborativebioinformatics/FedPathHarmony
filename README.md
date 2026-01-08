@@ -77,18 +77,6 @@ flowchart TD
     Agg -.->|Global Weights| ClientB
 ```
 
-## Flowchart:
-
-### Data Harmonization Workflow
-
-``` mermaid
-flowchart TD
-    A[Identify 2-4 Participating Biobanks] --> B[Characterize Local Data]
-    B --> C[Evaluate GA4GH Standards]
-    C --> D[Cross-Biobank Harmonization]
-    D --> E[Develop Simplified Knowledge Graph - Single Disease State]
-```
-
 ## Methods
 
 ### Data Sources
@@ -110,6 +98,24 @@ In a federated learning framework, this image-level frequency information is com
 - Beer–Lambert Stain Normalization (smart harmonization): Patches are first stain-normalized to reduce inter-center variability, then local models are trained and aggregated using FedAvg in NVFLARE.
 
 - Pooled Centers (centralized evaluation): Patches from all five centers are combined into a single dataset, and a centralized model is trained to evaluate the performance difference between conventional centralized training and federated approaches.
+
+## How to use this repository:
+
+1. Load data into local environment: `wget "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/?download=1" \
+  -O camelyon17.tar.gz`
+
+## Flowchart:
+
+### Data Harmonization Workflow
+
+``` mermaid
+flowchart TD
+    A[Identify 2-4 Participating Biobanks] --> B[Characterize Local Data]
+    B --> C[Evaluate GA4GH Standards]
+    C --> D[Cross-Biobank Harmonization]
+    D --> E[Develop Simplified Knowledge Graph - Single Disease State]
+```
+
   
 ## References:
 
