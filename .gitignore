@@ -4,3 +4,7 @@ __pycache__/
 *$py.class
 
 camelyon17/
+viz/
+sample/
+results/
+*.png

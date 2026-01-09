@@ -26,7 +26,7 @@ def evaluate(net, data_loader, device):
     with torch.no_grad():
         for data in data_loader:
             images, labels = data[0].to(device), data[1].to(device)
-            outputs = net(images)
+            outputs, _, _ = net(images)
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
@@ -39,10 +39,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", type=int, default=2)
     parser.add_argument("--batch_size", type=int, default=16)
+    parser.add_argument("--fl_type", type=str, default="fedavg")
     args = parser.parse_args()
 
     batch_size = args.batch_size
     epochs = args.epochs
+
+    if args.fl_type == "fedavg":
+        do_norm = False
+    elif args.fl_type == "harmo":
+        do_norm = True
 
     # Initialize NVFlare client
     flare.init()
@@ -51,8 +57,8 @@ def main():
     site_name = int(client_name[-1])
 
     # Initialize model
-    model = DenseNet()  # adapt input_shape if needed
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model = DenseNet(input_shape=[3, 96, 96], num_classes=2, do_norm=do_norm)  # adapt input_shape if needed
+    device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
     loss_fn = nn.CrossEntropyLoss()
     optimizer = Adam(model.parameters(), lr=1e-3)
 
@@ -96,7 +102,7 @@ def main():
             for i, batch in enumerate(train_loader):
                 images, labels = batch[0].to(device), batch[1].to(device)
                 optimizer.zero_grad()
-                outputs = model(images)
+                outputs, _, _ = model(images)
                 cost = loss_fn(outputs, labels)
                 cost.backward()
                 optimizer.step()

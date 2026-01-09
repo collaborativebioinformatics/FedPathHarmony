@@ -62,7 +62,7 @@ class DenseNet(nn.Module):
     """
     def __init__(self, input_shape=[3, 96, 96], growth_rate=32, block_config=(6, 12, 24, 16),
                  num_init_features=64, bn_size=4, drop_rate=0, num_classes=2,
-                 do_norm=False, d_channels=3, **kwargs):
+                 do_norm=False, d_channels=8, **kwargs):
 
         super(DenseNet, self).__init__()
 
@@ -112,9 +112,11 @@ class DenseNet(nn.Module):
         features = self.features(x)
         out = F.relu(features,inplace=True)
         out = F.adaptive_avg_pool2d(out, (1,1))
-        out = torch.flatten(out, 1)
-        out = self.classifier(out)
-        return out
+        emb = torch.flatten(out, 1)
+        out = self.classifier(emb)
+
+        if self.do_norm: return out, x, emb
+        return out, -1, emb
 
 
 

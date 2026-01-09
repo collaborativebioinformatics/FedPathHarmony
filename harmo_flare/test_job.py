@@ -11,6 +11,7 @@ from utils.dataset import Camelyon17
 
 from nvflare.app_opt.pt.recipes.fedavg import FedAvgRecipe
 from nvflare.recipe import SimEnv, add_experiment_tracking
+import torch
 
 # from nets.models_factory import make_densenet
 
@@ -18,8 +19,8 @@ from nvflare.recipe import SimEnv, add_experiment_tracking
 def define_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--n_clients", type=int, default=5, help="Number of federated sites/clients")
-    parser.add_argument("--num_rounds", type=int, default=200, help="Number of FL rounds")
-    parser.add_argument("--epochs", type=int, default=2, help="Local training epochs per round")
+    parser.add_argument("--num_rounds", type=int, default=1, help="Number of FL rounds")
+    parser.add_argument("--epochs", type=int, default=0, help="Local training epochs per round")
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--fl_type", type=str, default="fedavg")
     return parser.parse_args()
@@ -33,15 +34,20 @@ def main():
 
     if args.fl_type == "fedavg":
         do_norm = False
-        exp_name = f"camelyon-fedavg_{num_rounds}"
+        exp_name = "test-camelyon-fedavg"
+        file_path_name = "camelyon-fedavg_20"
     elif args.fl_type == "harmo":
         do_norm = True
-        exp_name = f"camelyon-fedharmo_{num_rounds}"
+        exp_name = "test-camelyon-fedharmo"
+        file_path_name = "camelyon-fedharmo_20"
 
 
-    # Initial model for FedAvg
     initial_model = DenseNet(input_shape=[3, 96, 96], num_classes=2, do_norm=do_norm)  # adapt input_shape and num_classes
-    # initial_model = ClientModel1(backbone='densenet', do_norm=False)
+    model_path = f"/tmp/nvflare/simulation/{file_path_name}/server/simulate_job/app_server/FL_global_model.pt"
+
+    ckpt = torch.load(model_path, map_location="cpu")["model"]    
+    initial_model.load_state_dict(ckpt, strict=False)
+
 
     # Define the FedAvg recipe
     recipe = FedAvgRecipe(
@@ -49,8 +55,8 @@ def main():
         min_clients=n_clients,
         num_rounds=num_rounds,
         initial_model=initial_model,   # <-- call the factory
-        train_script="harmo_flare/client.py",  # your client code for site-specific dataset
-        train_args=f"--epochs {args.epochs} --batch_size {args.batch_size} --fl_type {args.fl_type}",
+        train_script="harmo_flare/test_client.py",  # your client code for site-specific dataset
+        train_args=f"--batch_size {args.batch_size} --fl_type {args.fl_type} --model_path {model_path}",
         # train_args=[f"--site {site} --epochs {args.epochs} --batch_size {args.batch_size}" for site in sites]
     )
     
