@@ -1,0 +1,16 @@
+# Deep learning
+torch>=2.2
+torchvision>=0.17
+torchaudio>=2.2
+
+# Federated learning
+nvflare>=2.5
+
+# General libraries for image manipulation, visualization, and UI
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.4
+pandas>=2.1
+matplotlib>=3.8
+tqdm>=4.66
+
