@@ -81,9 +81,13 @@ flowchart TD
 
 ### Data Sources
 
-**Patch Based Histopathology:** The CAMELYON17 dataset comprises 1,300 hematoxylin and eosin (H&E)–stained sentinel lymph node whole-slide images (WSIs) from breast cancer patients. Using a patch-based variant of CAMELYON17 \[4\], approximately 450,000 patches of size 96 × 96 pixels were extracted from the WSIs. Each WSI was manually annotated by pathologists to delineate tumor regions, and the resulting segmentation masks were used to assign binary labels (tumor or non-tumor) to each patch.
+**Patch Based Histopathology:** The CAMELYON17 dataset comprises 1,300 hematoxylin and eosin (H&E)–stained sentinel lymph node whole-slide images (WSIs) from breast cancer patients. Using a patch-based variant of CAMELYON17 \[4\], approximately 450,000 patches of size 96 × 96 pixels were extracted from the WSIs. Each WSI was manually annotated by pathologists to delineate tumor regions, and the resulting segmentation masks were used to assign binary labels (tumor or non-tumor) to each patch. (Source: [https://wilds.stanford.edu/datasets](https://wilds.stanford.edu/datasets)
 
 **Biobank Proxy**: The CAMELYON17 dataset includes whole slide images from five pathology centers: RadboudUMC, UMCU, Erasmus MC, UMCG and the Institute Jules Bordet. By treating each pathology center as a proxy for a separate biobank, we can explore the impact of a diverse range of staining protocols, slide preparation methods, and scanning equipment on inter-center variability, and the need for data harmonization across sites.
+
+
+
+Link: https://wilds.stanford.edu/datasets
 
 ### Data Harmonization
 
