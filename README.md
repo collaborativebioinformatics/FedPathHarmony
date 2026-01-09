@@ -1,13 +1,9 @@
 # FedPathHarmony
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-### *Federated Harmonization for Multi-Center Digital Pathology*
+[2025 CMUxNVIDIA Hackathon Presentation](https://docs.google.com/presentation/d/1Z1ETuMo5PxNxhr6dWYqGMMD3bvD5yx0pYbWMeU16Cio/edit?slide=id.g3b5dd2a9ae9_1_177#slide=id.g3b5dd2a9ae9_1_177)
 
-<p align="left">
-
-<img src="assets/content.png" alt="Harmonius Hacker Logo" width="300"/> 
-
-</p>
-
+Federated Harmonization for Multi-Center Digital Pathology. Compatible with Pytorch and NVFlare.
 
 ## Team Members
 
@@ -35,9 +31,10 @@ In the **CAMELYON17** dataset, we observe significant heterogeneity across 5 med
 
 <p align="center">
 
-<img src="assets/domain_shift.png" alt="Stain Heterogeneity across 5 Clients" width="600"/> <br> <em>Figure 1: Visualizing the domain shift. Note how Client C is purple-heavy while Client E is pink-heavy. (Source: CAMELYON17)</em>
+<img src="assets/domain_shifts.png" alt="Stain Heterogeneity across 5 Centers/Clients" width="600"/> <br> <em>Fig. 1: CAMELYON17-WRDS patches by center and label. Heterogeneity in staining protocols between centers is shown, with Center 3 demonstrating high-intensity, saturated H&E staining, whereas Center 5 exhibits low-intensity, lightly stained H&E with reduced color saturation. </em>
 
 </p>
+
 
 **The Challenge:** A standard AI model might incorrectly learn that "Pink = Tumor" or "Purple = Normal" simply based on which hospital the data came from.
 
@@ -81,7 +78,7 @@ flowchart TD
 
 ### Data Sources
 
-**Patch Based Histopathology:** The CAMELYON17 dataset comprises 1,300 hematoxylin and eosin (H&E)–stained sentinel lymph node whole-slide images (WSIs) from breast cancer patients. Using a patch-based variant of CAMELYON17 \[4\], approximately 450,000 patches of size 96 × 96 pixels were extracted from the WSIs. Each WSI was manually annotated by pathologists to delineate tumor regions, and the resulting segmentation masks were used to assign binary labels (tumor or non-tumor) to each patch.
+**Patch Based Histopathology:** The CAMELYON17 dataset comprises 1,300 hematoxylin and eosin (H&E)–stained sentinel lymph node whole-slide images (WSIs) from breast cancer patients. Using a patch-based variant of CAMELYON17 \[4\], approximately 450,000 patches of size 96 × 96 pixels were extracted from the WSIs. Each WSI was manually annotated by pathologists to delineate tumor regions, and the resulting segmentation masks were used to assign binary labels (tumor or non-tumor) to each patch. (Source: [https://wilds.stanford.edu/datasets](https://wilds.stanford.edu/datasets)
 
 **Biobank Proxy**: The CAMELYON17 dataset includes whole slide images from five pathology centers: RadboudUMC, UMCU, Erasmus MC, UMCG and the Institute Jules Bordet. By treating each pathology center as a proxy for a separate biobank, we can explore the impact of a diverse range of staining protocols, slide preparation methods, and scanning equipment on inter-center variability, and the need for data harmonization across sites.
 
@@ -95,7 +92,7 @@ In a federated learning framework, this image-level frequency information is com
 
 - Federated Averaging (naive harmonization): Each center trains a local model on its patches; model weights are periodically averaged across centers using FedAvg via NVFLARE, without explicit stain harmonization.
 
-- Beer–Lambert Stain Normalization (smart harmonization): Patches are first stain-normalized to reduce inter-center variability, then local models are trained and aggregated using FedAvg in NVFLARE.
+- Beer–Lambert Stain Normalization (smart harmonization): Patches are first stain-normalized to reduce inter-center variability, then local models are trained and aggregated using FedAvg in NVFLARE.https://github.com/collaborativebioinformatics/FedPathHarmony/blob/main/README.md
 
 - Pooled Centers (centralized evaluation): Patches from all five centers are combined into a single dataset, and a centralized model is trained to evaluate the performance difference between conventional centralized training and federated approaches.
 
@@ -115,7 +112,7 @@ conda activate fpharmo
 ````
 
 
-4. Install Required Libraries
+3. Install Required Libraries
 
     a. Install the pytorch for the corresponding local CUDA version from here.
     ```bash
@@ -129,7 +126,7 @@ conda activate fpharmo
     pip install -r requirements.txt
     ````
 
-5. Start the training:
+4. Start the training:
 ```bash
 python -m harmo_flare.job --fl_type harmo
 ````
@@ -144,7 +141,7 @@ Command Line Arguments:
 | `--batch_size`  | 128     | Batch size for local training                     |
 | `--fl_type`     | fedavg  | Federated learning type (`fedavg` or `harmo`)     |
 
-6. Evaluation:
+5. Evaluation:
 To get the evaluation metrics (Accuracy, F1 and AUROC), use the following command:
 ```bash
 python -m harmo_flare.test_job --fl_type harmo
