@@ -89,13 +89,21 @@ In a federated learning framework, this image-level frequency information is com
 
 - Federated Averaging (naive harmonization): Each center trains a local model on its patches; model weights are periodically averaged across centers using FedAvg via NVFLARE, without explicit stain harmonization.
 
-- Beer–Lambert Stain Normalization (smart harmonization): Patches are first stain-normalized to reduce inter-center variability, then local models are trained and aggregated using FedAvg in NVFLARE.
+- Beer–Lambert Stain Normalization (smart harmonization): Patches are first stain-normalized to reduce inter-center variability, then local models are trained and aggregated using FedAvg in NVFLARE.https://github.com/collaborativebioinformatics/FedPathHarmony/blob/main/README.md
 
 - Pooled Centers (centralized evaluation): Patches from all five centers are combined into a single dataset, and a centralized model is trained to evaluate the performance difference between conventional centralized training and federated approaches.
 
 ## How to use this repository:
 
-1. Load data into local environment:
+1. Clone Repository
+   ```
+   git clone git@github.com:collaborativebioinformatics/FedPathHarmony.git
+   cd FedPathHarmony
+   ```
+2. Install dependencies (see `requirements.txt`)
+- `pytorch`
+- 
+2. Load CAMELYON17 data into local environment:
 
 ```bash
 wget "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/?download=1" \ -O camelyon17.tar.gz
