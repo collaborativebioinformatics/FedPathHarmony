@@ -106,14 +106,41 @@ In a federated learning framework, this image-level frequency information is com
    git clone git@github.com:collaborativebioinformatics/FedPathHarmony.git
    cd FedPathHarmony
    ```
-2. Install dependencies (see `requirements.txt`)
-- `pytorch`
-- 
-2. Load CAMELYON17 data into local environment:
 
-```bash
-wget "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/?download=1" \ -O camelyon17.tar.gz
-````
+2. Install conda environment
+    ```
+    conda create -n FedPathHarmony python=3.12 -y
+    conda activate FedPathHarmony
+    ```
+
+3. Install conda specific PyTorch libraries
+    ```
+    conda install pytorch torchvision torchaudio pytorch-cuda=11.8 \
+      -c pytorch -c nvidia -y
+    ```
+
+4. Install remaining pip requirements
+    ```
+    pip install -r requirements.txt
+    ```
+
+5. Load CAMELYON17 data into local environment
+
+    ```bash
+    mkdir -p data
+    
+    python - <<EOF
+    from datasets import load_dataset
+    
+    dataset = load_dataset(
+        "wltjr1007/Camelyon17-WILDS",
+        cache_dir="data"
+    )
+    
+    print(dataset)
+    EOF
+    
+    ````
 
 ## Flowchart:
 
