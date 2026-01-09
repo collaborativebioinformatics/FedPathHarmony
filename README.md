@@ -147,19 +147,6 @@ To get the evaluation metrics (Accuracy, F1 and AUROC), use the following comman
 python -m harmo_flare.test_job --fl_type harmo
 ````
 
-
-## Flowchart:
-
-### Data Harmonization Workflow
-
-``` mermaid
-flowchart TD
-    A[Identify 2-4 Participating Biobanks] --> B[Characterize Local Data]
-    B --> C[Evaluate GA4GH Standards]
-    C --> D[Cross-Biobank Harmonization]
-    D --> E[Develop Simplified Knowledge Graph - Single Disease State]
-```
-
   
 ## References:
 
