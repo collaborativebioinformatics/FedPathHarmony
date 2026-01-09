@@ -1,7 +1,7 @@
 # FedPathHarmony
-![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-*Federated Harmonization for Multi-Center Digital Pathology*. Compatible with Pytorch and NVFlare.
+Federated Harmonization for Multi-Center Digital Pathology. Compatible with Pytorch and NVFlare.
 
 ## Team Members
 
