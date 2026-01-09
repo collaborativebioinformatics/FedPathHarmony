@@ -101,11 +101,55 @@ In a federated learning framework, this image-level frequency information is com
 
 ## How to use this repository:
 
-1. Load data into local environment:
+1. Download the Camelyon Dataset:
 
 ```bash
-wget "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/?download=1" \ -O camelyon17.tar.gz
+wget "https://worksheets.codalab.org/rest/bundles/0xe45e15f39fb54e9d9e919556af67aabe/contents/blob/?download=1"  -O camelyon17.tar.gz
+tar -xzf camelyon17.tar.gz
 ````
+
+2. Create Conda Environment:
+```bash
+conda create --name fpharmo python=3.10 -y \
+conda activate fpharmo
+````
+
+
+4. Install Required Libraries
+
+    a. Install the pytorch for the corresponding local CUDA version from here.
+    ```bash
+    # Example for CUDA 12.1
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+    ````
+
+    b. Install requirements:
+
+    ```bash
+    pip install -r requirements.txt
+    ````
+
+5. Start the training:
+```bash
+python -m harmo_flare.job --fl_type harmo
+````
+
+Command Line Arguments:
+
+| Argument        | Default | Description                                      |
+|-----------------|---------|--------------------------------------------------|
+| `--n_clients`   | 5       | Number of federated sites/clients                 |
+| `--num_rounds`  | 200     | Number of FL rounds                               |
+| `--epochs`      | 2       | Local training epochs per round                   |
+| `--batch_size`  | 128     | Batch size for local training                     |
+| `--fl_type`     | fedavg  | Federated learning type (`fedavg` or `harmo`)     |
+
+6. Evaluation:
+To get the evaluation metrics (Accuracy, F1 and AUROC), use the following command:
+```bash
+python -m harmo_flare.test_job --fl_type harmo
+````
+
 
 ## Flowchart:
 
