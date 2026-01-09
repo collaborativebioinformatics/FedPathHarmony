@@ -1,7 +1,7 @@
 # FedPathHarmony
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-[2025 CMUxNVIDIA Hackathon Presentation](https://docs.google.com/presentation/d/1Z1ETuMo5PxNxhr6dWYqGMMD3bvD5yx0pYbWMeU16Cio/edit?slide=id.g3b5dd2a9ae9_1_177#slide=id.g3b5dd2a9ae9_1_177)
+[2025 CMUxNVIDIA Hackathon Presentation](https://docs.google.com/presentation/d/1Z1ETuMo5PxNxhr6dWYqGMMD3bvD5yx0pYbWMeU16Cio/edit?usp=sharing)
 
 Federated Harmonization for Multi-Center Digital Pathology. Compatible with Pytorch and NVFlare.
 
@@ -23,7 +23,6 @@ Federated Harmonization for Multi-Center Digital Pathology. Compatible with Pyto
 | Jiahao He                | leah12577\@gmail.com           |
 | Abhijit Chunduru         | schunduru\@umass.edu           |
 
-You can find our presentation [here](https://docs.google.com/presentation/d/1Z1ETuMo5PxNxhr6dWYqGMMD3bvD5yx0pYbWMeU16Cio/edit?usp=sharing).
 
 ## Problem Statement:
 
