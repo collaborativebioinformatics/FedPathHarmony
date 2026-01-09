@@ -29,6 +29,12 @@ In the **CAMELYON17** dataset, we observe significant heterogeneity across 5 med
 
 <p align="center">
 
+<img src="assets/domain_shifts.png" alt="Stain Heterogeneity across 5 Centers/Clients" width="600"/> <br> <em>Fig. 1: CAMELYON17-WRDS patches by center and label. Heterogeneity in staining protocols between centers is shown, with Center 3 demonstrating high-intensity, saturated H&E staining, whereas Center 5 exhibits low-intensity, lightly stained H&E with reduced color saturation. </em>
+
+</p>
+
+<p align="center">
+
 <img src="assets/domain_shift.png" alt="Stain Heterogeneity across 5 Clients" width="600"/> <br> <em>Figure 1: Visualizing the domain shift. Note how Client C is purple-heavy while Client E is pink-heavy. (Source: CAMELYON17)</em>
 
 </p>
