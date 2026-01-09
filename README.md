@@ -85,10 +85,6 @@ flowchart TD
 
 **Biobank Proxy**: The CAMELYON17 dataset includes whole slide images from five pathology centers: RadboudUMC, UMCU, Erasmus MC, UMCG and the Institute Jules Bordet. By treating each pathology center as a proxy for a separate biobank, we can explore the impact of a diverse range of staining protocols, slide preparation methods, and scanning equipment on inter-center variability, and the need for data harmonization across sites.
 
-
-
-Link: https://wilds.stanford.edu/datasets
-
 ### Data Harmonization
 
 Due to the inter-center variability in staining protocols, slide preparation methods, and scanning equipment in the CAMELYON17 dataset, harmonizing the visual representation of histopathology images is critical for ensuring robust model performance across sites. To address this challenge, we developed a harmonization approach based on the Beer-Lambert law to compute image-level frequency information for each whole-slide hematoxylin and eosin (H&E) image. This approach captures the spectral characteristics of each WSI, representing key staining features (e.g., variations in hematoxylin and eosin absorption) in a quantitative and standardized manner.
