@@ -33,11 +33,6 @@ In the **CAMELYON17** dataset, we observe significant heterogeneity across 5 med
 
 </p>
 
-<p align="center">
-
-<img src="assets/domain_shift.png" alt="Stain Heterogeneity across 5 Clients" width="600"/> <br> <em>Figure 1: Visualizing the domain shift. Note how Client C is purple-heavy while Client E is pink-heavy. (Source: CAMELYON17)</em>
-
-</p>
 
 **The Challenge:** A standard AI model might incorrectly learn that "Pink = Tumor" or "Purple = Normal" simply based on which hospital the data came from.
 
