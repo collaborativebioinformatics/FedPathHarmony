@@ -23,6 +23,8 @@ Federated Harmonization for Multi-Center Digital Pathology. Compatible with Pyto
 | Jiahao He                | leah12577\@gmail.com           |
 | Abhijit Chunduru         | schunduru\@umass.edu           |
 
+You can find our presentation [here](https://docs.google.com/presentation/d/1Z1ETuMo5PxNxhr6dWYqGMMD3bvD5yx0pYbWMeU16Cio/edit?usp=sharing).
+
 ## Problem Statement:
 
 In precision medicine, integrating data from different biobanks is hindered by **domain shifts**. A Federated Learning model trained on "raw" data from disjoint hospitals often fails to generalize because it learns to recognize *site-specific artifacts* rather than biological pathology.
@@ -114,7 +116,7 @@ conda activate fpharmo
 
 3. Install Required Libraries
 
-    a. Install the pytorch for the corresponding local CUDA version from here.
+    a. Install the pytorch for the corresponding local CUDA version from [here](https://pytorch.org/).
     ```bash
     # Example for CUDA 12.1
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
