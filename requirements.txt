@@ -14,3 +14,5 @@ pandas>=2.1
 matplotlib>=3.8
 tqdm>=4.66
 
+# CAMELYON17 Data
+wrds>=3.2
